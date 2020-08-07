@@ -1,0 +1,9 @@
+html {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+#bg-img {
+  background-image: cover;
+  height: 100vh;
+}
