@@ -15,6 +15,40 @@
     />
   </head>
   <body>
+    <h1 id="title">Calculator</h1>
+    <div id="calc">
+      <input type="text" id="screen" value="0" disabled />
+
+      <div class="output">
+        <div data-previous-operand class="previous-operand"></div>
+        <div data-current-operand class="current-operand"></div>
+      </div>
+      <div class="button-container">
+        <div id="values">
+          <button data-number type="button" value="7">7</button>
+          <button data-number type="button" value="8">8</button>
+          <button data-number type="button" value="9">9</button>
+          <button data-operator type="button" class="operator" value="/">&divide;</button>
+
+          <button data-number type="button" value="4">4</button>
+          <button data-number type="button" value="5">5</button>
+          <button data-number type="button" value="6">6</button>
+          <button data-operator type="button" class="operator" value="*">&times;</button>
+
+          <button data-number type="button" value="1">1</button>
+          <button data-number type="button" value="2">2</button>
+          <button data-number type="button" value="3">3</button>
+          <button data-operator type="button" class="operator" value="-">-</button>
+        
+        <button data-operator type="button" class="operator" value="+">+</button>
+        <button data-number type="button" value="0">0</button>
+        <button data-number type="button" class="decimal function" value=".">.</button>
+        <button class="span-two" type="button" class="all-clear function" value="all-clear">
+          AC
+        </button>
+      <button data-equals class="span-two" type="button" id="equal-sign" value="=">=</button>
+    </div>
+    </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

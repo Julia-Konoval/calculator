@@ -24,29 +24,33 @@ body {
   margin: auto;
   background-color: rgb(176, 197, 209);
 }
-/* #button-container {
-  background-color: blanchedalmond;
-} */
 :root {
-  --grid-rows: 1;
-  --grid-cols: 1;
   background-color: rgb(255, 255, 255);
 }
-#button-container {
+.button-container {
+  display: grid;
+}
+#values {
   display: grid;
   grid-template-columns: repeat(4, 10vh [col-start]);
-  grid-template-rows: repeat(4, 10vh [row-start]);
+  grid-template-rows: repeat(5, 8vh [row-start]);
   grid-gap: 10px;
   margin: 5%;
 }
-.number-btn {
-  border: 1px solid rgba(139, 58, 139, 0.808);
-  background-color: rgba(129, 76, 129, 0.808);
-  box-shadow: 5px 4px rgb(58, 57, 57);
-}
+
 #title {
   font-family: "Dancing Script", cursive;
-  /* position: relative; */
   margin-right: 10%;
   font-size: 15vh;
 }
+button {
+  border: 1px solid rgba(139, 58, 139, 0.808);
+  background-color: rgba(129, 76, 129, 0.808);
+  box-shadow: 5px 4px rgb(58, 57, 57);
+  border-radius: 25%;
+  font-size: 4vh;
+}
+/* #equal-sign {
+  height: 7vh;
+  width: 14vh;
+} */
