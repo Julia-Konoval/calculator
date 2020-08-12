@@ -17,12 +17,13 @@
   <body>
     <h1 id="title">Calculator</h1>
     <div id="calc">
-      <input type="text" id="screen" value="0" disabled />
+      <!-- <input type="text" id="screen" value="0" disabled /> -->
 
-      <div class="output">
+      <div id="screen">
         <div data-previous-operand class="previous-operand"></div>
         <div data-current-operand class="current-operand"></div>
       </div>
+
       <div class="button-container">
         <div id="values">
           <button data-number type="button" value="7">7</button>
@@ -43,12 +44,16 @@
         <button data-operator type="button" class="operator" value="+">+</button>
         <button data-number type="button" value="0">0</button>
         <button data-number type="button" class="decimal function" value=".">.</button>
-        <button class="span-two" type="button" class="all-clear function" value="all-clear">
+        <button data-all-clear class="span-two" type="button" class="all-clear function" value="all-clear">
           AC
         </button>
-      <button data-equals class="span-two" type="button" id="equal-sign" value="=">=</button>
+
+       <button data-equals class="span-two" type="button" id="equal-sign" value="=">=</button>
+       <button data-delete>DEL</button>
     </div>
     </div>
+
     <script type="text/javascript" src="script.js"></script>
+
   </body>
 </html>
