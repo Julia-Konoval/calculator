@@ -15,6 +15,8 @@ const previousOperandTextElement = document.querySelector(
 const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
+const dataOperation = document.querySelector("[data-operation]");
+
 const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
@@ -30,31 +32,31 @@ numberBtn.forEach((button) => {
     currentOperandTextElement.textContent += button.textContent;
   });
 });
-
-operationBtn.forEach((button) => {
-  let result;
-  // button.addEventListener("click", (e) => {
-  switch (operationBtn) {
-    case "+":
-      result = a + b;
-      break;
-    case "-":
-      result = a - b;
-      break;
-    case "*":
-      result = a * b;
-      break;
-    case "DEL":
-      result = a - b;
-      break;
-    default:
-      return;
-  }
-  console.log(result);
-});
-// });
 function calc() {
-  button.addEventListener("click", (e) => {
-    currentOperandTextElement += result;
+  operationBtn.forEach((button) => {
+    let result;
+    // button.addEventListener("click", (e) => {
+    switch (button) {
+      case "+":
+        result = a + b;
+        break;
+      case "-":
+        result = a - b;
+        break;
+      case "*":
+        result = a * b;
+        break;
+      case "DEL":
+        result = a - b;
+        break;
+      default:
+        return;
+    }
+    console.log(result);
+  });
+  // });
+
+  operationBtn.addEventListener("click", () => {
+    calc();
   });
 }
