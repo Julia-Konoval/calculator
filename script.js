@@ -21,61 +21,40 @@ const calculator = new Calculator(
 );
 
 numberBtn.forEach((button) => {
-  button.addEventListener("click", () => {
-    switch (numberBtn) {
-      case "1":
-        screen.innerText = 1;
-        break;
-      case "2":
-        screen.innerText = 2;
-        break;
-      case "3":
-        screen.innerText = 3;
-        break;
-      case "4":
-        screen.innerText = 4;
-        break;
-      case "5":
-        screen.innerText = 5;
-        break;
-      case "6":
-        screen.innerText = 6;
-        break;
-      case "7":
-        screen.innerText = 7;
-        break;
-      case "8":
-        screen.innerText = 8;
-        break;
-      case "9":
-        screen.innerText = 9;
-        break;
-      default:
-        return;
-    }
-    this.previousOperandTextElement.innerText = numberBtn.innerText;
+  button.addEventListener("click", (e) => {
+    if (
+      button.textContent === "." &&
+      currentOperandTextElement.textContent.includes(".")
+    )
+      return;
+    currentOperandTextElement.textContent += button.textContent;
   });
 });
 
 operationBtn.forEach((button) => {
   let result;
-  button.addEventListener("click", () => {
-    switch (operator) {
-      case "+":
-        result = a + b;
-        break;
-      case "-":
-        result = a - b;
-        break;
-      case "*":
-        result = a * b;
-        break;
-      case "DEL":
-        result = a - b;
-        break;
-      default:
-        return;
-    }
-    this.currentOperandTextElement.innerText = result;
-  });
+  // button.addEventListener("click", (e) => {
+  switch (operationBtn) {
+    case "+":
+      result = a + b;
+      break;
+    case "-":
+      result = a - b;
+      break;
+    case "*":
+      result = a * b;
+      break;
+    case "DEL":
+      result = a - b;
+      break;
+    default:
+      return;
+  }
+  console.log(result);
 });
+// });
+function calc() {
+  button.addEventListener("click", (e) => {
+    currentOperandTextElement += result;
+  });
+}
