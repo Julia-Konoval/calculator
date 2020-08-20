@@ -19,9 +19,6 @@ body {
 #screen {
   display: flex;
   flex-direction: row;
-  /* justify-content: right;
-  align-content: right;
-  text-align: right; */
   border: 2px solid black;
   border-radius: 25px;
   width: 47vh;
@@ -29,7 +26,7 @@ body {
   margin: auto;
   background-color: rgb(176, 197, 209);
   font-size: 7vh;
-  text-align: right;
+  justify-content: right;
 }
 :root {
   background-color: rgb(255, 255, 255);
@@ -40,7 +37,7 @@ body {
 #values {
   display: grid;
   grid-template-columns: repeat(4, 10vh [col-start]);
-  grid-template-rows: repeat(5, 8vh [row-start]);
+  grid-template-rows: repeat(7, 8vh [row-start]);
   grid-gap: 10px;
   margin: 5%;
 }
@@ -56,6 +53,32 @@ button {
   box-shadow: 5px 4px rgb(58, 57, 57);
   border-radius: 25%;
   font-size: 4vh;
+  outline: none;
+}
+button:hover {
+  box-shadow: 2px 2px 2px lavender;
+  outline: none;
+}
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
+}
+button:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.operator {
+  background-color: #8db0bb;
+}
+.number-btn {
+  background-color: #aea8d3;
+}
+.decimal-function {
+  background-color: #8db0bb;
 }
 /* #equal-sign {
   height: 7vh;

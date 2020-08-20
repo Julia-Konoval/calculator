@@ -1,9 +1,3 @@
-class Calculator {
-  constructor(previousOperandTextElement, currentOperandTextElement) {
-    this.currentOperandTextElement = currentOperandTextElement;
-    this.previousOperandTextElement = previousOperandTextElement;
-  }
-}
 const numberBtn = document.querySelectorAll("[data-number]");
 const operationBtn = document.querySelectorAll("[data-operator]");
 const equalsBtn = document.querySelector("[data-equals]");
@@ -15,12 +9,45 @@ const previousOperandTextElement = document.querySelector(
 const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
-const dataOperation = document.querySelector("[data-operation]");
+let displayvalue = "";
+let firstNumber = Number(numberBtn.textContent);
+let currentNumber = "";
+let operator = "";
 
-const calculator = new Calculator(
-  previousOperandTextElement,
-  currentOperandTextElement
-);
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1 / num2;
+}
+
+function operate(operator, num1, num2) {
+  if (operator === "+") {
+    return add(num1, num2);
+  } else if ((operator = "-")) {
+    return subtract(num1, num2);
+  } else if ((operator = "*")) {
+    return multiply(num1, num2);
+  } else if ((operator = "/")) {
+    return divide(num1, num2);
+  }
+}
+
+function allClear() {
+  // Setting all the values to the starting values.
+  firstNum = 0;
+  currentNum = "";
+  operator = "";
+}
 
 numberBtn.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -29,44 +56,57 @@ numberBtn.forEach((button) => {
       currentOperandTextElement.textContent.includes(".")
     )
       return;
+    // if (currentOperandTextElement.textContent.length >= 11) {
+    //   deleteItem();
+    // }
     currentOperandTextElement.textContent += button.textContent;
+    // currentNumber = currentOperandTextElement.textContent;
   });
 });
 
 operationBtn.forEach((button) => {
   button.addEventListener("click", (e) => {
-    console.log(e.target.textContent);
-    switch (e.target.textContent) {
-      case "+":
-        // add the + to the current operation string
-        // so if there is a 5 and you click +, the screen should have 5+
-        // same with other operations
-        currentOperandTextElement.textContent += e.target.textContent;
-        calculate();
-        break;
-      case "-":
-        currentOperandTextElement.textContent += e.target.textContent;
-        calculate();
-        break;
-      case "*":
-        currentOperandTextElement.textContent += e.target.textContent;
-        calculate();
-        break;
-      case "DEL":
-        currentOperandTextElement.textContent += e.target.textContent;
-        calculate();
-        break;
-      default:
-        return;
-    }
     currentOperandTextElement.textContent += e.target.textContent;
   });
 });
-function calculate() {
-  console.log("use eval here");
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
-  eval(currentOperandTextElement.value);
-  currentOperandTextElement.value = result;
-  // Use eval by retrieving what is on the calculators screen
-  // Use a display function to display the result (it's optional, you can display from this function, but it's better to have seperate display functions)
+
+equalsBtn.addEventListener("click", () => {
+  let value = currentOperandTextElement.textContent.toString();
+
+  let result = eval(value);
+  if (result.length >= 11) {
+    Math.round(result);
+  }
+
+  // if (currentOperandTextElement.textContent.length >= 10) {
+  //   currentOperandTextElement.textContent.style.fontsize = "4vh";
+  // }
+  currentOperandTextElement.textContent = result;
+  //   let operator = operationBtn.textContent;
+  //   let value = operate(operator, firstNumber, currentNumber);
+  //   currentOperandTextElement.textContent += value;
+  //   console.log("1");
+  //   calculate(operator, previousOperandTextElement, currentOperandTextElement);
+});
+
+function allClear() {
+  // Setting all the values to the starting values.
+  currentOperandTextElement.textContent = "";
 }
+
+function deleteItem() {
+  if (currentOperandTextElement.textContent != "") {
+    currentOperandTextElement.textContent = currentOperandTextElement.textContent.slice(
+      0,
+      -1
+    );
+  }
+}
+
+allClearBtn.addEventListener("click", () => {
+  allClear();
+});
+
+deleteBtn.addEventListener("click", () => {
+  deleteItem();
+});
