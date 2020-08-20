@@ -32,31 +32,41 @@ numberBtn.forEach((button) => {
     currentOperandTextElement.textContent += button.textContent;
   });
 });
-function calc() {
-  operationBtn.forEach((button) => {
-    let result;
-    // button.addEventListener("click", (e) => {
-    switch (button) {
+
+operationBtn.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    console.log(e.target.textContent);
+    switch (e.target.textContent) {
       case "+":
-        result = a + b;
+        // add the + to the current operation string
+        // so if there is a 5 and you click +, the screen should have 5+
+        // same with other operations
+        currentOperandTextElement.textContent += e.target.textContent;
+        calculate();
         break;
       case "-":
-        result = a - b;
+        currentOperandTextElement.textContent += e.target.textContent;
+        calculate();
         break;
       case "*":
-        result = a * b;
+        currentOperandTextElement.textContent += e.target.textContent;
+        calculate();
         break;
       case "DEL":
-        result = a - b;
+        currentOperandTextElement.textContent += e.target.textContent;
+        calculate();
         break;
       default:
         return;
     }
-    console.log(result);
+    currentOperandTextElement.textContent += e.target.textContent;
   });
-  // });
-
-  operationBtn.addEventListener("click", () => {
-    calc();
-  });
+});
+function calculate() {
+  console.log("use eval here");
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+  eval(currentOperandTextElement.value);
+  currentOperandTextElement.value = result;
+  // Use eval by retrieving what is on the calculators screen
+  // Use a display function to display the result (it's optional, you can display from this function, but it's better to have seperate display functions)
 }
